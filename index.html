@@ -1,38 +1,127 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-h2{
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  
+  font-family: 'Varela Round', sans-serif;
+}
+h1{
+    font-size: 200%;
+    color: 
+#D32C03;
+text-align: center;
+
+}
+p{
+    color:
+#F5F5F5;
+}
+/* Style tab links */
+.tablink {
     text-align: center;
-    background-color: #212121;
-    color: #e0e0e0;
-}
-.parallax {
-  /* The image used */
-  background-image: url("img_parallax.jpg");
+  background-color:
 
-  /* Set a specific height */
-  min-height: 500px; 
+  #283059;
+  color: 
 
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  #F5F5F5;
+  float: center;
+  border: none;
+  font-size: 150%;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+  height: 8%;
+  margin: auto;
 }
+
+.tablink:hover {
+  background-color: 
+  #7C85B5;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Home {background-color: 
+
+    #283059
+;}
+#News {background-color: 
+
+    #283059
+
+}
+#Contact {background-color: 
+    #283059
+;}
+#About {background-color: 
+    #283059
+;}
 </style>
 </head>
 <body>
 
-<h2>Controversy in the Space Race</h2>
+<button class="tablink" onclick="openPage('Home', this, '#283059')">Home</button>
+<button class="tablink" onclick="openPage('News', this, '#283059')" id="defaultOpen">Thesis</button>
+<button class="tablink" onclick="openPage('Contact', this, '#283059')">Contact</button>
+<button class="tablink" onclick="openPage('About', this, '#283059')">About</button>
 
-<div class="parallax"></div>
-
-<div>
-    <h2></h2>
+<div id="Home" class="tabcontent">
+  <h1>Home</h1>
+  <p>Home is where the heart is..</p>
 </div>
 
+<div id="News" class="tabcontent">
+  <h1>News</h1>
+  <p>Some news this fine day!</p> 
+</div>
 
+<div id="Contact" class="tabcontent">
+  <h1>Contact</h1>
+  <p>Get in touch, or swing by for a cup of coffee.</p>
+</div>
+
+<div id="About" class="tabcontent">
+  <h1>About</h1>
+  <p>Who we are and what we do.</p>
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
 </body>
-</html>
+</html> 
